@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07110f">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="description" content="SignalScan reveals how your business appears to customers, competitors and opportunistic attackers through a 48-hour external digital trust intelligence report.">
+
+  <title>SignalScan | External Digital Trust Intelligence</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SignalScan | External Digital Trust Intelligence">
+  <meta property="og:description" content="See the trust gaps, customer-journey friction and missed opportunities visible across your public digital surface.">
+  <meta property="og:site_name" content="SignalScan">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SignalScan | External Digital Trust Intelligence">
+  <meta name="twitter:description" content="A 48-hour external digital trust intelligence report for founder-led UK automotive businesses.">
+
+  <style>
+    :root {
+      --bg: #07110f;
+      --bg-soft: #0b1714;
+      --surface: rgba(16, 34, 29, 0.78);
+      --surface-strong: #10221d;
+      --surface-hover: #143028;
+      --text: #f3f7f5;
+      --muted: #a8bab4;
+      --line: rgba(192, 226, 214, 0.15);
+      --line-strong: rgba(192, 226, 214, 0.28);
+      --accent: #79f2bb;
+      --accent-strong: #41d895;
+      --accent-ink: #04140d;
+      --warning: #ffd78a;
+      --danger: #ff9e9e;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      --radius-sm: 0.75rem;
+      --radius: 1.15rem;
+      --radius-lg: 1.75rem;
+      --container: 74rem;
+      --header-height: 4.75rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 1rem);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% -10%, rgba(65, 216, 149, 0.16), transparent 32rem),
+        radial-gradient(circle at 95% 12%, rgba(81, 155, 255, 0.10), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 9999;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.7rem 1rem;
+      transform: translateY(-160%);
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(4rem, 8vw, 7.5rem) 0;
+    }
+
+    .section-tight {
+      padding: clamp(2.75rem, 5vw, 4.5rem) 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 0.79rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 1.5rem;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      max-width: 16ch;
+      margin-bottom: 1.25rem;
+      font-size: clamp(2.65rem, 7vw, 5.8rem);
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+    }
+
+    h4 {
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .lead {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .text-centre {
+      text-align: center;
+    }
+
+    .section-heading {
+      max-width: 48rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading.centre {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section-heading.centre .eyebrow {
+      justify-content: center;
+    }
+
+    .section-heading.centre .eyebrow::before {
+      display: none;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      min-height: var(--header-height);
+      border-bottom: 1px solid transparent;
+      background: rgba(7, 17, 15, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+      background: rgba(7, 17, 15, 0.94);
+      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.18);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: var(--header-height);
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 2.25rem;
+      height: 2.25rem;
+      place-items: center;
+      border: 1px solid rgba(121, 242, 187, 0.4);
+      border-radius: 0.7rem;
+      background:
+        linear-gradient(145deg, rgba(121, 242, 187, 0.22), rgba(121, 242, 187, 0.04));
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .brand-mark svg {
+      width: 1.25rem;
+    }
+
+    .brand-name {
+      font-size: 1.14rem;
+    }
+
+    .brand-name span {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav-toggle svg {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+
+    .nav-list,
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      display: inline-flex;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.6rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        color 160ms ease,
+        background 160ms ease;
+    }
+
+    .nav-list a:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .nav-list .nav-cta {
+      margin-left: 0.35rem;
+      border: 1px solid rgba(121, 242, 187, 0.26);
+      background: rgba(121, 242, 187, 0.09);
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: calc(100vh - var(--header-height));
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: clamp(4rem, 10vw, 8rem) 0;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      top: 5%;
+      right: -12rem;
+      width: min(46vw, 40rem);
+      aspect-ratio: 1;
+      border: 1px solid rgba(121, 242, 187, 0.1);
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(
+          circle,
+          rgba(121, 242, 187, 0.055) 0 1px,
+          transparent 1px 3rem
+        );
+      content: "";
+      opacity: 0.9;
+      transform: rotate(-12deg);
+    }
+
+    .hero-grid {
+      display: grid;
+      align-items: center;
+      gap: clamp(2.5rem, 6vw, 6rem);
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+    }
+
+    .hero-copy {
+      max-width: 49rem;
+    }
+
+    .hero h2 span {
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin: 2rem 0 1.4rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 3.2rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.25rem;
+      border: 1px solid transparent;
+      border-radius: 0.8rem;
+      font-weight: 850;
+      line-height: 1.1;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+      box-shadow: 0 15px 40px rgba(65, 216, 149, 0.18);
+    }
+
+    .button.primary:hover {
+      background: #92f8ca;
+      box-shadow: 0 20px 44px rgba(65, 216, 149, 0.24);
+    }
+
+    .button.secondary {
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text);
+    }
+
+    .button.secondary:hover {
+      border-color: rgba(121, 242, 187, 0.4);
+      background: rgba(121, 242, 187, 0.07);
+    }
+
+    .button svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1.2rem;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      list-style: none;
+    }
+
+    .hero-proof li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-proof li::before {
+      width: 0.48rem;
+      height: 0.48rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(121, 242, 187, 0.08);
+      content: "";
+    }
+
+    .signal-console {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(150deg, rgba(21, 49, 41, 0.88), rgba(10, 23, 19, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .signal-console::before {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(121, 242, 187, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(121, 242, 187, 0.025) 1px, transparent 1px);
+      background-size: 2rem 2rem;
+      content: "";
+      mask-image: linear-gradient(to bottom, black, transparent);
+      pointer-events: none;
+    }
+
+    .console-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.76rem;
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .console-dots span {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .console-body {
+      position: relative;
+      display: grid;
+      gap: 0.8rem;
+      padding: 1.25rem;
+    }
+
+    .signal-row {
+      display: grid;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 0.9rem;
+      background: rgba(3, 12, 9, 0.32);
+      grid-template-columns: auto 1fr auto;
+    }
+
+    .signal-icon {
+      display: grid;
+      width: 2.25rem;
+      height: 2.25rem;
+      place-items: center;
+      border-radius: 0.7rem;
+      background: rgba(121, 242, 187, 0.08);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .signal-row strong,
+    .signal-row small {
+      display: block;
+    }
+
+    .signal-row strong {
+      font-size: 0.92rem;
+    }
+
+    .signal-row small {
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.77rem;
+    }
+
+    .status {
+      padding: 0.3rem 0.5rem;
+      border: 1px solid rgba(121, 242, 187, 0.18);
+      border-radius: 999px;
+      background: rgba(121, 242, 187, 0.06);
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .trust-strip {
+      border-block: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      min-height: 8.5rem;
+      padding: 1.5rem;
+      border-right: 1px solid var(--line);
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--accent);
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .split {
+      display: grid;
+      align-items: start;
+      gap: clamp(2.5rem, 7vw, 6rem);
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    }
+
+    .problem-panel {
+      position: sticky;
+      top: calc(var(--header-height) + 2rem);
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .problem-card,
+    .method-card,
+    .finding-card,
+    .deliverable-card,
+    .process-card,
+    .price-card,
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 14px 46px rgba(0, 0, 0, 0.08);
+    }
+
+    .problem-card {
+      padding: 1.3rem;
+    }
+
+    .problem-card span {
+      display: inline-flex;
+      margin-bottom: 0.55rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .problem-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .category-callout {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(121, 242, 187, 0.2);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(121, 242, 187, 0.09), rgba(121, 242, 187, 0.025));
+    }
+
+    .category-callout strong {
+      color: var(--accent);
+    }
+
+    .method-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .method-card {
+      position: relative;
+      min-height: 17rem;
+      overflow: hidden;
+      padding: 1.5rem;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .method-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(121, 242, 187, 0.32);
+      background: var(--surface-hover);
+    }
+
+    .method-letter {
+      display: inline-flex;
+      margin-bottom: 2.25rem;
+      color: var(--accent);
+      font-size: 2.2rem;
+      font-weight: 950;
+      letter-spacing: -0.06em;
+    }
+
+    .method-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .method-number {
+      position: absolute;
+      right: 1.1rem;
+      bottom: 0.55rem;
+      color: rgba(255, 255, 255, 0.035);
+      font-size: 5.5rem;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .deliverable-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .deliverable-card {
+      display: grid;
+      gap: 0.9rem;
+      padding: 1.25rem;
+      grid-template-columns: auto 1fr;
+    }
+
+    .deliverable-icon {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid rgba(121, 242, 187, 0.18);
+      border-radius: 0.75rem;
+      background: rgba(121, 242, 187, 0.07);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .deliverable-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .findings-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .finding-card {
+      padding: 1.35rem;
+    }
+
+    .finding-label {
+      display: inline-flex;
+      margin-bottom: 1rem;
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .finding-label.positive {
+      background: rgba(121, 242, 187, 0.09);
+      color: var(--accent);
+    }
+
+    .finding-label.gap {
+      background: rgba(255, 215, 138, 0.09);
+      color: var(--warning);
+    }
+
+    .finding-label.friction {
+      background: rgba(255, 158, 158, 0.08);
+      color: var(--danger);
+    }
+
+    .finding-label.opportunity {
+      background: rgba(128, 174, 255, 0.1);
+      color: #9cc0ff;
+    }
+
+    .finding-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .ideal-box {
+      display: grid;
+      gap: 1.5rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .check-list,
+    .cross-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li,
+    .cross-list li {
+      display: grid;
+      gap: 0.7rem;
+      color: var(--muted);
+      grid-template-columns: auto 1fr;
+    }
+
+    .check-list li::before {
+      color: var(--accent);
+      content: "✓";
+      font-weight: 950;
+    }
+
+    .cross-list li::before {
+      color: var(--danger);
+      content: "×";
+      font-weight: 950;
+    }
+
+    .process-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .process-card {
+      padding: 1.35rem;
+    }
+
+    .process-step {
+      display: inline-flex;
+      margin-bottom: 1.25rem;
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .process-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .ethics-band {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(121, 242, 187, 0.18);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(120deg, rgba(121, 242, 187, 0.08), rgba(16, 34, 29, 0.72));
+    }
+
+    .ethics-band p:last-child {
+      margin-bottom: 0;
+    }
+
+    .founder-grid {
+      display: grid;
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      grid-template-columns: minmax(15rem, 0.55fr) minmax(0, 1fr);
+    }
+
+    .founder-mark {
+      position: relative;
+      display: grid;
+      aspect-ratio: 1;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(121, 242, 187, 0.2), transparent 30%),
+        linear-gradient(145deg, #16352b, #0a1713);
+      box-shadow: var(--shadow);
+    }
+
+    .founder-mark::before,
+    .founder-mark::after {
+      position: absolute;
+      border: 1px solid rgba(121, 242, 187, 0.14);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .founder-mark::before {
+      width: 72%;
+      aspect-ratio: 1;
+    }
+
+    .founder-mark::after {
+      width: 45%;
+      aspect-ratio: 1;
+    }
+
+    .founder-initials {
+      position: relative;
+      z-index: 1;
+      color: var(--accent);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 950;
+      letter-spacing: -0.09em;
+    }
+
+    .founder-copy p {
+      color: var(--muted);
+    }
+
+    .pricing-grid {
+      display: grid;
+      align-items: stretch;
+      gap: 1rem;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .price-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .price-card.featured {
+      border-color: rgba(121, 242, 187, 0.3);
+      background:
+        linear-gradient(145deg, rgba(121, 242, 187, 0.09), rgba(16, 34, 29, 0.88));
+    }
+
+    .price-badge {
+      display: inline-flex;
+      margin-bottom: 1.4rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-size: 0.74rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin-bottom: 0.55rem;
+      color: var(--text);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 950;
+      letter-spacing: -0.07em;
+      line-height: 0.95;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: normal;
+    }
+
+    .price-card .check-list {
+      margin: 1.5rem 0 1.75rem;
+    }
+
+    .guarantee {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(0, 0, 0, 0.12);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .faq-list {
+      max-width: 54rem;
+      margin-inline: auto;
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    details:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    summary {
+      display: flex;
+      min-height: 4.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      font-weight: 850;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      color: var(--accent);
+      content: "+";
+      font-size: 1.5rem;
+      font-weight: 400;
+      transition: transform 160ms ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details p {
+      max-width: 48rem;
+      padding: 0 2.5rem 1.4rem 0;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      align-items: start;
+      gap: clamp(2rem, 6vw, 5rem);
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    }
+
+    .contact-copy {
+      position: sticky;
+      top: calc(var(--header-height) + 2rem);
+    }
+
+    .contact-copy .check-list {
+      margin-top: 1.5rem;
+    }
+
+    .form-card {
+      padding: clamp(1.25rem, 4vw, 2rem);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 0.75rem;
+      background: rgba(4, 14, 11, 0.65);
+      color: var(--text);
+      transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background 160ms ease;
+    }
+
+    input,
+    select {
+      min-height: 3.2rem;
+      padding: 0 0.9rem;
+    }
+
+    textarea {
+      min-height: 8rem;
+      padding: 0.85rem 0.9rem;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #72847e;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(121, 242, 187, 0.7);
+      background: rgba(5, 17, 13, 0.92);
+      box-shadow: 0 0 0 4px rgba(121, 242, 187, 0.08);
+      outline: none;
+    }
+
+    .checkbox-field {
+      display: grid;
+      align-items: start;
+      gap: 0.75rem;
+      grid-template-columns: auto 1fr;
+    }
+
+    .checkbox-field input {
+      width: 1.1rem;
+      min-height: auto;
+      height: 1.1rem;
+      margin-top: 0.25rem;
+      accent-color: var(--accent-strong);
+    }
+
+    .checkbox-field label {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .checkbox-field a,
+    .inline-link {
+      color: var(--accent);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 1.2rem;
+    }
+
+    .form-note,
+    .form-status {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .form-status {
+      min-height: 1.4rem;
+    }
+
+    .form-status.success {
+      color: var(--accent);
+    }
+
+    .form-status.error {
+      color: var(--danger);
+    }
+
+    .honeypot {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      white-space: nowrap !important;
+    }
+
+    .site-footer {
+      padding: 2.4rem 0;
+      border-top: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .footer-nav a {
+      padding: 0.45rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition:
+        opacity 600ms ease,
+        transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 62rem) {
+      .hero-grid,
+      .split,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .signal-console {
+        max-width: 38rem;
+      }
+
+      .problem-panel,
+      .contact-copy {
+        position: static;
+      }
+
+      .method-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .findings-grid,
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .trust-item:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .founder-grid {
+        grid-template-columns: minmax(12rem, 0.45fr) 1fr;
+      }
+    }
+
+    @media (max-width: 48rem) {
+      :root {
+        --header-height: 4.25rem;
+      }
+
+      .nav-toggle {
+        display: grid;
+      }
+
+      .site-nav {
+        position: fixed;
+        z-index: 999;
+        top: var(--header-height);
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        visibility: hidden;
+        background: rgba(7, 17, 15, 0.98);
+        opacity: 0;
+        transform: translateY(-0.75rem);
+        transition:
+          visibility 180ms ease,
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .site-nav.open {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+      }
+
+      .nav-list {
+        display: grid;
+        align-items: stretch;
+        gap: 0.45rem;
+      }
+
+      .nav-list a {
+        min-height: 3rem;
+        align-items: center;
+        padding-inline: 1rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .nav-list .nav-cta {
+        margin-left: 0;
+      }
+
+      .hero::after {
+        top: 12rem;
+        right: -13rem;
+        width: 28rem;
+      }
+
+      .method-grid,
+      .deliverable-grid,
+      .findings-grid,
+      .ideal-box,
+      .process-grid,
+      .founder-grid,
+      .pricing-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .founder-mark {
+        max-width: 22rem;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 34rem) {
+      .container {
+        width: min(calc(100% - 1.25rem), var(--container));
+      }
+
+      .section {
+        padding: 3.8rem 0;
+      }
+
+      .hero-actions,
+      .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trust-item:last-child {
+        border-bottom: 0;
+      }
+
+      .signal-row {
+        grid-template-columns: auto 1fr;
+      }
+
+      .status {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SignalScan",
+    "description": "External digital trust intelligence for founder-led UK automotive service businesses.",
+    "areaServed": "United Kingdom",
+    "founder": {
+      "@type": "Person",
+      "name": "Nathan Jones"
+    },
+    "serviceType": [
+      "External Digital Trust Intelligence",
+      "Public Digital Surface Assessment",
+      "Customer Journey Review",
+      "Online Trust Analysis"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "GBP",
+      "price": "295",
+      "description": "Founding-client SignalScan assessment"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="SignalScan home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 16.5V19h2.5M4 19l5.2-5.2M20 7.5V5h-2.5M20 5l-5.2 5.2M8.5 5H6a2 2 0 0 0-2 2v2.5M15.5 19H18a2 2 0 0 0 2-2v-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="2.25" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </span>
+        <span class="brand-name">Signal<span>Scan</span></span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        aria-label="Open navigation"
+      >
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#deliverables">Deliverables</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a class="nav-cta" href="#preview">Request preview</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">External Digital Trust Intelligence</p>
+          <h2>See your business as the outside world <span>sees it.</span></h2>
+          <p class="lead">
+            SignalScan reveals the trust gaps, customer-journey friction,
+            public exposure and missed opportunities visible across your
+            digital surface — then turns them into a practical action plan.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#preview">
+              Request a free Three-Signal Preview
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="button secondary" href="#sample">See example findings</a>
+          </div>
+
+          <ul class="hero-proof" aria-label="Service highlights">
+            <li>Delivered within 48 hours</li>
+            <li>Passive and non-intrusive</li>
+            <li>Built for UK automotive businesses</li>
+          </ul>
+        </div>
+
+        <aside class="signal-console" aria-label="Illustrative SignalScan interface">
+          <div class="console-head">
+            <div class="console-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <span>public_surface.scan</span>
+          </div>
+          <div class="console-body">
+            <div class="signal-row">
+              <span class="signal-icon" aria-hidden="true">S</span>
+              <span>
+                <strong>Surface mapped</strong>
+                <small>Domains, profiles and indexed pages</small>
+              </span>
+              <span class="status">Observed</span>
+            </div>
+            <div class="signal-row">
+              <span class="signal-icon" aria-hidden="true">I</span>
+              <span>
+                <strong>Integrity checked</strong>
+                <small>Trust, privacy and technical indicators</small>
+              </span>
+              <span class="status">Verified</span>
+            </div>
+            <div class="signal-row">
+              <span class="signal-icon" aria-hidden="true">G</span>
+              <span>
+                <strong>Gateway tested</strong>
+                <small>Mobile enquiry and booking journey</small>
+              </span>
+              <span class="status">Walked</span>
+            </div>
+            <div class="signal-row">
+              <span class="signal-icon" aria-hidden="true">L</span>
+              <span>
+                <strong>Leverage created</strong>
+                <small>24-hour actions and 30-day roadmap</small>
+              </span>
+              <span class="status">Prioritised</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip section-tight" aria-label="SignalScan service principles">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>48 hours</strong>
+          <span>From confirmed scope to a visual, prioritised report.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Public only</strong>
+          <span>No logins, exploitation, credential guessing or private access.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Evidence-led</strong>
+          <span>Every material finding is linked to an observable signal.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Actionable</strong>
+          <span>Clear decisions, not a pile of unexplained technical output.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container split">
+        <div class="problem-panel reveal">
+          <p class="eyebrow">The hidden problem</p>
+          <h3>Your business is being judged before anyone calls.</h3>
+          <p class="lead">
+            Customers make fast trust decisions using whatever your public
+            digital surface gives them. Most businesses never see the full
+            picture those visitors see.
+          </p>
+        </div>
+
+        <div class="problem-list">
+          <article class="problem-card reveal">
+            <span>Trust leakage</span>
+            <h4>Small inconsistencies create large doubts.</h4>
+            <p>
+              Broken policy links, outdated information, mismatched opening
+              hours and weak proof signals can quietly undermine confidence.
+            </p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>Journey friction</span>
+            <h4>Interested customers meet preventable obstacles.</h4>
+            <p>
+              Poor mobile layouts, confusing forms, dead-end buttons and
+              unclear calls to action make contacting you harder than it
+              should be.
+            </p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>Public exposure</span>
+            <h4>Your visible footprint may reveal more than intended.</h4>
+            <p>
+              Old pages, forgotten profiles, exposed documents and avoidable
+              technical signals can create reputation and security concerns.
+            </p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>Missed leverage</span>
+            <h4>Your strongest proof may be sitting unused.</h4>
+            <p>
+              Reviews, specialist capabilities, local reputation and customer
+              language often exist publicly but are not converted into trust.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="category-callout reveal">
+          <p class="eyebrow">The category</p>
+          <h3>External Digital Trust Intelligence</h3>
+          <p class="lead">
+            SignalScan is not SEO theatre, a generic website audit or a
+            penetration test. It examines the <strong>evidence your business
+            projects to the outside world</strong> and converts that evidence
+            into practical decisions across trust, integrity, customer
+            experience and commercial opportunity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The SIGNAL method</p>
+          <h3>Six lenses. One coherent external picture.</h3>
+          <p class="lead">
+            Every assessment follows the same structured method so findings
+            are explainable, repeatable and commercially useful.
+          </p>
+        </div>
+
+        <div class="method-grid">
+          <article class="method-card reveal">
+            <span class="method-letter">S</span>
+            <h4>Surface</h4>
+            <p>
+              Confirm the public digital estate: domains, business profiles,
+              social accounts, directories and indexed pages.
+            </p>
+            <span class="method-number" aria-hidden="true">01</span>
+          </article>
+
+          <article class="method-card reveal">
+            <span class="method-letter">I</span>
+            <h4>Integrity</h4>
+            <p>
+              Observe trust, privacy and technical indicators including
+              certificates, policy links, forms and visible inconsistencies.
+            </p>
+            <span class="method-number" aria-hidden="true">02</span>
+          </article>
+
+          <article class="method-card reveal">
+            <span class="method-letter">G</span>
+            <h4>Gateway</h4>
+            <p>
+              Walk the mobile customer journey and identify ambiguity,
+              obstruction, dead ends and unnecessary effort.
+            </p>
+            <span class="method-number" aria-hidden="true">03</span>
+          </article>
+
+          <article class="method-card reveal">
+            <span class="method-letter">N</span>
+            <h4>Narrative</h4>
+            <p>
+              Analyse public reviews and messaging to understand the story
+              customers are already telling about the business.
+            </p>
+            <span class="method-number" aria-hidden="true">04</span>
+          </article>
+
+          <article class="method-card reveal">
+            <span class="method-letter">A</span>
+            <h4>Advantage</h4>
+            <p>
+              Compare three relevant local competitors across clarity, trust,
+              journey quality and visible opportunity.
+            </p>
+            <span class="method-number" aria-hidden="true">05</span>
+          </article>
+
+          <article class="method-card reveal">
+            <span class="method-letter">L</span>
+            <h4>Leverage</h4>
+            <p>
+              Convert findings into a priority matrix, immediate actions and
+              a realistic 30-day improvement roadmap.
+            </p>
+            <span class="method-number" aria-hidden="true">06</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deliverables">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">What you receive</p>
+          <h3>A decision-ready intelligence report.</h3>
+          <p class="lead">
+            The report is designed to be understood by an owner or manager,
+            not only by a technical specialist.
+          </p>
+        </div>
+
+        <div class="deliverable-grid">
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">01</span>
+            <div>
+              <h4>Executive judgement</h4>
+              <p>A concise explanation of what matters, why it matters and what should happen first.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">02</span>
+            <div>
+              <h4>External surface map</h4>
+              <p>A timestamped view of the public domains, profiles, pages and visible business touchpoints found.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">03</span>
+            <div>
+              <h4>Trust and integrity findings</h4>
+              <p>Evidence-backed observations covering privacy, consistency, visible exposure and technical trust signals.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">04</span>
+            <div>
+              <h4>Mobile journey analysis</h4>
+              <p>A practical walkthrough of the route from discovery to call, quote request, enquiry or booking.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">05</span>
+            <div>
+              <h4>Reputation narrative</h4>
+              <p>An analysis of what reviews repeatedly praise, question or reveal about customer expectations.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">06</span>
+            <div>
+              <h4>Competitor comparison</h4>
+              <p>A side-by-side assessment of three relevant local competitors and their visible advantages.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">07</span>
+            <div>
+              <h4>Priority matrix</h4>
+              <p>Findings ranked by likely impact, confidence, effort and urgency rather than raw technical severity alone.</p>
+            </div>
+          </article>
+
+          <article class="deliverable-card reveal">
+            <span class="deliverable-icon" aria-hidden="true">08</span>
+            <div>
+              <h4>24-hour and 30-day plan</h4>
+              <p>Immediate corrections, medium-term improvements and optional implementation recommendations.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sample">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Illustrative findings</p>
+          <h3>The type of signals we turn into decisions.</h3>
+          <p class="muted">
+            These examples are illustrative. Every client report is based on
+            the business's actual public surface at the time of assessment.
+          </p>
+        </div>
+
+        <div class="findings-grid">
+          <article class="finding-card reveal">
+            <span class="finding-label positive">Positive signal</span>
+            <h4>Strong review theme</h4>
+            <p>
+              Customers repeatedly praise honesty and clear explanations,
+              creating a credible trust message that could be used more visibly.
+            </p>
+          </article>
+
+          <article class="finding-card reveal">
+            <span class="finding-label gap">Trust gap</span>
+            <h4>Broken privacy link</h4>
+            <p>
+              A footer link intended to reassure customers returns an error,
+              weakening confidence at the point personal data may be submitted.
+            </p>
+          </article>
+
+          <article class="finding-card reveal">
+            <span class="finding-label friction">Journey obstruction</span>
+            <h4>Mobile form friction</h4>
+            <p>
+              The booking route becomes difficult to complete on a small
+              screen, increasing effort at the exact moment intent is highest.
+            </p>
+          </article>
+
+          <article class="finding-card reveal">
+            <span class="finding-label opportunity">Missed opportunity</span>
+            <h4>Specialism is buried</h4>
+            <p>
+              A valuable specialist capability appears in reviews and social
+              posts but is not clearly communicated on the main website.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading centre reveal">
+          <p class="eyebrow">Fit check</p>
+          <h3>Built for businesses where trust turns into enquiries.</h3>
+        </div>
+
+        <div class="ideal-box reveal">
+          <div>
+            <h4>SignalScan is a strong fit when you:</h4>
+            <ul class="check-list">
+              <li>Run a UK garage, MOT centre or automotive specialist business.</li>
+              <li>Have roughly 2–30 staff and owner-led decision-making.</li>
+              <li>Rely on calls, enquiries, quote requests or bookings.</li>
+              <li>Earn meaningful value from each new or returning customer.</li>
+              <li>Suspect your online presence could build more trust or work harder.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>SignalScan is not intended to replace:</h4>
+            <ul class="cross-list">
+              <li>A penetration test or active vulnerability assessment.</li>
+              <li>Formal legal, regulatory or certification advice.</li>
+              <li>A full internal cybersecurity programme.</li>
+              <li>Guaranteed SEO rankings, leads or revenue claims.</li>
+              <li>Access to private systems, accounts or customer records.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How it works</p>
+          <h3>From first signal to practical roadmap.</h3>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <span class="process-step">STEP 01</span>
+            <h4>Request a preview</h4>
+            <p>
+              Share your business name, website and the outcome you want to
+              improve. No payment is required for the preview.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-step">STEP 02</span>
+            <h4>Receive three signals</h4>
+            <p>
+              You receive a concise initial view containing three publicly
+              observable signals and an explanation of why they matter.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-step">STEP 03</span>
+            <h4>Confirm scope</h4>
+            <p>
+              Where the preview is valuable, the full assessment begins after
+              payment and written confirmation of the agreed public assets.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-step">STEP 04</span>
+            <h4>Receive the report</h4>
+            <p>
+              Within 48 hours, you receive the visual report, prioritised
+              roadmap and a focused walkthrough of the findings.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="ethical">
+      <div class="container">
+        <div class="ethics-band reveal">
+          <p class="eyebrow">Ethical boundary</p>
+          <h3>Observe responsibly. Never intrude.</h3>
+          <p class="lead">
+            SignalScan uses passive, publicly lawful research. It does not
+            bypass authentication, guess credentials, exploit vulnerabilities,
+            impersonate customers, submit deceptive enquiries or access private
+            systems. The service provides intelligence, not penetration testing.
+          </p>
+          <p class="muted">
+            Any optional implementation work is separately scoped and agreed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="founder">
+      <div class="container founder-grid">
+        <div class="founder-mark reveal" aria-label="Nathan Jones monogram">
+          <span class="founder-initials">NJ</span>
+        </div>
+
+        <div class="founder-copy reveal">
+          <p class="eyebrow">Founder-led intelligence</p>
+          <h3>Built by Nathan Jones.</h3>
+          <p class="lead">
+            Nathan Jones, known as Jxnesyy, is the founder of Cyber Seeds and
+            the originator of Domestic Cyber Ecology — a UK discipline focused
+            on how people, technology, behaviour and trust interact within
+            everyday digital environments.
+          </p>
+          <p>
+            SignalScan applies experience across cybersecurity, OSINT, digital
+            anthropology, safeguarding and customer-journey analysis to help
+            independent businesses understand how they appear from the outside.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Founding-client offer</p>
+          <h3>High-value clarity without agency-level overhead.</h3>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card featured reveal">
+            <span class="price-badge">First five qualifying clients</span>
+            <h4>Founding SignalScan</h4>
+            <p class="price">£295 <small>one-off</small></p>
+            <p class="muted">
+              Offered in exchange for structured feedback and permission to
+              request an honest testimonial. A positive testimonial is never required.
+            </p>
+
+            <ul class="check-list">
+              <li>Full SIGNAL assessment</li>
+              <li>Three-competitor comparison</li>
+              <li>Visual evidence-backed report</li>
+              <li>24-hour priority actions</li>
+              <li>30-day improvement roadmap</li>
+              <li>Focused report walkthrough</li>
+            </ul>
+
+            <a class="button primary" href="#preview">Request your preview</a>
+
+            <p class="guarantee">
+              <strong>Actionability guarantee:</strong> if the final report does
+              not contain at least five evidence-backed, actionable findings
+              across trust, exposure, customer journey or commercial
+              opportunity, the assessment fee will be refunded.
+            </p>
+          </article>
+
+          <article class="price-card reveal">
+            <p class="eyebrow">Future rate</p>
+            <h4>Standard SignalScan</h4>
+            <p class="price">£750 <small>one-off</small></p>
+            <p class="muted">
+              The intended standard price after the first five qualifying
+              founding-client assessments have been completed.
+            </p>
+            <p class="guarantee">
+              SignalScan does not promise leads, revenue, search rankings,
+              regulatory certification or immunity from cybersecurity incidents.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-heading centre reveal">
+          <p class="eyebrow">Questions</p>
+          <h3>Clear boundaries before work begins.</h3>
+        </div>
+
+        <div class="faq-list reveal">
+          <details>
+            <summary>Is SignalScan a penetration test?</summary>
+            <p>
+              No. SignalScan is a passive external digital trust assessment.
+              It does not attempt to exploit vulnerabilities, gain access,
+              bypass controls or interact with private systems.
+            </p>
+          </details>
+
+          <details>
+            <summary>What does the free Three-Signal Preview include?</summary>
+            <p>
+              It contains three concise, publicly observable signals selected
+              to demonstrate the type of evidence SignalScan can surface. It is
+              not a substitute for the complete assessment.
+            </p>
+          </details>
+
+          <details>
+            <summary>Will you fix the issues you identify?</summary>
+            <p>
+              The core service is the intelligence report and roadmap.
+              Separately scoped implementation support may be available after
+              delivery, depending on the nature of the work required.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you guarantee leads, revenue or higher rankings?</summary>
+            <p>
+              No. SignalScan guarantees a minimum level of evidence-backed,
+              actionable findings under the stated refund policy. Commercial,
+              search and revenue outcomes depend on many factors outside the
+              assessment.
+            </p>
+          </details>
+
+          <details>
+            <summary>What information do you collect?</summary>
+            <p>
+              The preview form collects only the details needed to understand
+              the business and respond. The assessment itself is focused on
+              publicly available business information and the agreed public
+              digital surface.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can this be used outside the automotive sector?</summary>
+            <p>
+              The founding offer is intentionally focused on garages, MOT
+              centres and automotive specialists so the method can be validated
+              consistently. Other high-trust local service sectors may be
+              considered later.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preview">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Free Three-Signal Preview</p>
+          <h3>See what is already visible.</h3>
+          <p class="lead">
+            Send the basic details below. The form will prepare a structured
+            request in your email application, ready for you to review and send.
+          </p>
+
+          <ul class="check-list">
+            <li>No payment required.</li>
+            <li>No passwords or private access requested.</li>
+            <li>No obligation to purchase the full report.</li>
+            <li>Business enquiries only.</li>
+          </ul>
+        </div>
+
+        <form class="form-card reveal" id="preview-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                maxlength="100"
+                placeholder="e.g. Alex Taylor"
+              >
+            </div>
+
+            <div class="field">
+              <label for="business">Business name *</label>
+              <input
+                id="business"
+                name="business"
+                type="text"
+                autocomplete="organization"
+                required
+                maxlength="140"
+                placeholder="e.g. Taylor Motors"
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">Business email *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                maxlength="180"
+                placeholder="you@business.co.uk"
+              >
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="40"
+                placeholder="Optional"
+              >
+            </div>
+
+            <div class="field full">
+              <label for="website">Website or main business profile *</label>
+              <input
+                id="website"
+                name="website"
+                type="url"
+                autocomplete="url"
+                inputmode="url"
+                required
+                maxlength="300"
+                placeholder="https://yourbusiness.co.uk"
+              >
+            </div>
+
+            <div class="field">
+              <label for="business-type">Business type *</label>
+              <select id="business-type" name="businessType" required>
+                <option value="">Select one</option>
+                <option>Independent garage</option>
+                <option>MOT centre</option>
+                <option>Automotive specialist</option>
+                <option>Body repair or detailing</option>
+                <option>Mobile mechanic</option>
+                <option>Other automotive service</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="team-size">Approximate team size</label>
+              <select id="team-size" name="teamSize">
+                <option value="">Prefer not to say</option>
+                <option>1 person</option>
+                <option>2–5 people</option>
+                <option>6–10 people</option>
+                <option>11–20 people</option>
+                <option>21–30 people</option>
+                <option>31+ people</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="goal">What would you most like to improve?</label>
+              <textarea
+                id="goal"
+                name="goal"
+                maxlength="1000"
+                placeholder="For example: more quote requests, stronger trust, a better mobile journey, fewer confusing pages or a clearer specialist position."
+              ></textarea>
+            </div>
+
+            <div class="honeypot" aria-hidden="true">
+              <label for="company-site">Leave this field empty</label>
+              <input id="company-site" name="companySite" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field full checkbox-field">
+              <input id="consent" name="consent" type="checkbox" required>
+              <label for="consent">
+                I confirm that I am authorised to enquire on behalf of this
+                business and consent to being contacted about this request.
+                I understand that SignalScan will initially review only publicly
+                available business information. *
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit">
+              Prepare my preview request
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <button class="button secondary" id="copy-request" type="button">
+              Copy request instead
+            </button>
+          </div>
+
+          <p class="form-note">
+            This static form does not transmit data to a hidden database. It
+            prepares an email addressed to
+            <a class="inline-link" href="mailto:nlwjones2000@gmail.com">nlwjones2000@gmail.com</a>.
+          </p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-copy">
+        © <span id="year">2026</span> Jxnesyy Signal Lab. SignalScan is an
+        external intelligence service, not penetration testing.
+      </p>
+
+      <nav aria-label="Footer navigation">
+        <ul class="footer-nav">
+          <li><a href="#ethical">Ethical boundaries</a></li>
+          <li><a href="#faq">Privacy information</a></li>
+          <li><a href="mailto:nlwjones2000@gmail.com">Contact</a></li>
+          <li><a href="#top">Back to top</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const CONTACT_EMAIL = "nlwjones2000@gmail.com";
+      const header = document.getElementById("site-header");
+      const nav = document.getElementById("site-nav");
+      const navToggle = document.getElementById("nav-toggle");
+      const form = document.getElementById("preview-form");
+      const copyButton = document.getElementById("copy-request");
+      const formStatus = document.getElementById("form-status");
+      const year = document.getElementById("year");
+
+      year.textContent = new Date().getFullYear();
+
+      const setNavState = (open) => {
+        nav.classList.toggle("open", open);
+        document.body.classList.toggle("nav-open", open);
+        navToggle.setAttribute("aria-expanded", String(open));
+        navToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      };
+
+      navToggle.addEventListener("click", () => {
+        setNavState(!nav.classList.contains("open"));
+      });
+
+      nav.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          setNavState(false);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setNavState(false);
+        }
+      });
+
+      window.addEventListener(
+        "scroll",
+        () => header.classList.toggle("scrolled", window.scrollY > 8),
+        { passive: true }
+      );
+
+      const normaliseWebsite = () => {
+        const website = form.elements.website;
+        const value = website.value.trim();
+
+        if (value && !/^https?:\/\//i.test(value)) {
+          website.value = `https://${value}`;
+        }
+      };
+
+      form.elements.website.addEventListener("blur", normaliseWebsite);
+
+      const getFormData = () => {
+        normaliseWebsite();
+
+        return {
+          name: form.elements.name.value.trim(),
+          business: form.elements.business.value.trim(),
+          email: form.elements.email.value.trim(),
+          phone: form.elements.phone.value.trim() || "Not provided",
+          website: form.elements.website.value.trim(),
+          businessType: form.elements.businessType.value,
+          teamSize: form.elements.teamSize.value || "Not provided",
+          goal: form.elements.goal.value.trim() || "Not provided"
+        };
+      };
+
+      const buildRequest = () => {
+        const data = getFormData();
+
+        return [
+          "SIGNALSCAN — THREE-SIGNAL PREVIEW REQUEST",
+          "",
+          `Name: ${data.name}`,
+          `Business: ${data.business}`,
+          `Business email: ${data.email}`,
+          `Phone: ${data.phone}`,
+          `Website/profile: ${data.website}`,
+          `Business type: ${data.businessType}`,
+          `Approximate team size: ${data.teamSize}`,
+          "",
+          "Primary improvement goal:",
+          data.goal,
+          "",
+          "Consent confirmed:",
+          "The sender states that they are authorised to enquire on behalf of the business and understands that the initial review covers publicly available business information only.",
+          "",
+          `Generated: ${new Date().toLocaleString("en-GB", {
+            dateStyle: "full",
+            timeStyle: "short"
+          })}`
+        ].join("\n");
+      };
+
+      const validateForm = () => {
+        formStatus.textContent = "";
+        formStatus.className = "form-status";
+
+        if (form.elements.companySite.value) {
+          formStatus.textContent = "Submission could not be prepared.";
+          formStatus.classList.add("error");
+          return false;
+        }
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          formStatus.textContent = "Please complete the required fields before continuing.";
+          formStatus.classList.add("error");
+          return false;
+        }
+
+        return true;
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!validateForm()) {
+          return;
+        }
+
+        const data = getFormData();
+        const subject = `Three-Signal Preview — ${data.business}`;
+        const body = buildRequest();
+        const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        formStatus.textContent =
+          "Your email application should now open with the request prepared. Review it, then press Send.";
+        formStatus.classList.add("success");
+
+        window.location.href = mailto;
+      });
+
+      copyButton.addEventListener("click", async () => {
+        if (!validateForm()) {
+          return;
+        }
+
+        const body = buildRequest();
+
+        try {
+          await navigator.clipboard.writeText(body);
+          formStatus.textContent =
+            `Request copied. Email it to ${CONTACT_EMAIL}.`;
+          formStatus.classList.add("success");
+        } catch (error) {
+          const fallback = document.createElement("textarea");
+          fallback.value = body;
+          fallback.setAttribute("readonly", "");
+          fallback.style.position = "fixed";
+          fallback.style.opacity = "0";
+          document.body.appendChild(fallback);
+          fallback.select();
+
+          const copied = document.execCommand("copy");
+          fallback.remove();
+
+          formStatus.textContent = copied
+            ? `Request copied. Email it to ${CONTACT_EMAIL}.`
+            : `Copy failed. Please email your business name and website to ${CONTACT_EMAIL}.`;
+
+          formStatus.classList.add(copied ? "success" : "error");
+        }
+      });
+
+      const revealItems = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px" }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("visible"));
+      }
+    })();
+  </script>
+</body>
+</html>
