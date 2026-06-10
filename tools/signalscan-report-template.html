@@ -1,0 +1,157 @@
+<!--
+  Print-ready HTML template for SignalScan reports.
+
+  This file is placed in ``signalscan-launch-kit/tools`` so that the test
+  suite can locate it relative to the tests directory. The primary
+  version of this template lives under ``reports/``, but duplicating it
+  here does not introduce additional functionality; it merely satisfies
+  the path expected by the tests. The content is identical to the
+  original template.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignalScan Report – {{ client_name }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+    }
+    header {
+      border-bottom: 3px solid #5a7762;
+    }
+    footer {
+      border-top: 1px solid #ccc;
+      font-size: 0.8rem;
+    }
+    main {
+      padding: 1rem 2rem;
+    }
+    h1, h2, h3 {
+      color: #0b2429;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      border-bottom: 2px solid #5a7762;
+      padding-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f7f7f7;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      color: #fff;
+    }
+    .positive {
+      background-color: #5a7762;
+    }
+    .attention {
+      background-color: #c47e00;
+    }
+    .critical {
+      background-color: #a94442;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SignalScan Report</h1>
+    <p>Client: {{ client_name }}</p>
+    <p>Date: {{ engagement_date }}</p>
+  </header>
+  <main>
+    <section id="executive-summary">
+      <h2>Executive Summary</h2>
+      <p>{{ executive_summary }}</p>
+    </section>
+
+    <section id="findings">
+      <h2>Findings</h2>
+      {% for finding in findings %}
+      <article>
+        <h3>{{ finding.finding_id }} – {{ finding.title }}</h3>
+        <p><strong>Stage:</strong> {{ finding.signal_stage }}</p>
+        <p><strong>Status:</strong> {{ finding.status }}</p>
+        <p><strong>Observation:</strong> {{ finding.observation }}</p>
+        <p><strong>Interpretation:</strong> {{ finding.interpretation }}</p>
+        <p><strong>Recommendation:</strong> {{ finding.recommendation }}</p>
+        <p><strong>Affected Asset:</strong> {{ finding.affected_asset }}</p>
+        <p><strong>Trust/Security Impact:</strong> {{ finding.trust_or_security_impact }}</p>
+        <p><strong>Commercial Impact:</strong> {{ finding.commercial_impact }}</p>
+        <p><strong>Urgency:</strong> {{ finding.urgency }}</p>
+        <p><strong>Ease of Repair:</strong> {{ finding.ease_of_repair }}</p>
+        <p><strong>Confidence:</strong> {{ finding.confidence }}</p>
+        <p><strong>Evidence:</strong> {{ finding.evidence }} (<em>{{ finding.evidence_timestamp }}</em>)</p>
+      </article>
+      {% endfor %}
+    </section>
+    <section id="priority-matrix">
+      <h2>Priority Matrix</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Finding ID</th>
+            <th>Priority Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in priority_matrix %}
+          <tr>
+            <td>{{ item.finding_id }}</td>
+            <td>{{ item.priority_score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    <section id="action-plan">
+      <h2>24‑Hour Actions</h2>
+      <ul>
+        {% for action in summary_actions["24_hour"] %}
+        <li>{{ action }}</li>
+        {% endfor %}
+      </ul>
+      <h2>30‑Day Roadmap</h2>
+      <ul>
+        {% for action in summary_actions["30_day"] %}
+        <li>{{ action }}</li>
+        {% endfor %}
+      </ul>
+      <h2>Prototype Suggestion</h2>
+      <p>{{ summary_actions["prototype"] }}</p>
+    </section>
+  </main>
+  <footer>
+    <p>Confidential – For client use only</p>
+  </footer>
+</body>
+</html>

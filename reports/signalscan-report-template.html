@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignalScan Report – {{ client_name }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+    }
+    header {
+      border-bottom: 3px solid #5a7762;
+    }
+    footer {
+      border-top: 1px solid #ccc;
+      font-size: 0.8rem;
+    }
+    main {
+      padding: 1rem 2rem;
+    }
+    h1, h2, h3 {
+      color: #0b2429;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      border-bottom: 2px solid #5a7762;
+      padding-bottom: 0.25rem;
+    }
+    .confidential {
+      text-transform: uppercase;
+      color: #b00;
+      font-weight: bold;
+      margin-top: 0;
+    }
+    .section {
+      page-break-inside: avoid;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .priority-matrix td {
+      vertical-align: top;
+    }
+    .finding {
+      margin-bottom: 1rem;
+    }
+    .finding h4 {
+      margin-bottom: 0.25rem;
+    }
+    .sensitive {
+      background-color: #ffe6e6;
+      padding: 0.5rem;
+      border-left: 4px solid #e00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SignalScan Report</h1>
+    <p>{{ client_name }} – {{ assessment_date }}</p>
+    <p class="confidential">Confidential – do not distribute without permission</p>
+  </header>
+  <main>
+    <section class="section" id="scope">
+      <h2>Scope</h2>
+      <p>{{ scope_description }}</p>
+    </section>
+
+    <section class="section" id="executive-judgement">
+      <h2>Executive Judgement</h2>
+      <p>{{ executive_summary }}</p>
+    </section>
+
+    <section class="section" id="business-objective">
+      <h2>Business Objective</h2>
+      <p>{{ business_objective }}</p>
+    </section>
+
+    <section class="section" id="method">
+      <h2>Method</h2>
+      <p>{{ method_overview }}</p>
+    </section>
+
+    <section class="section" id="legal-ethical-boundary">
+      <h2>Legal & Ethical Boundary</h2>
+      <p>{{ boundaries_statement }}</p>
+    </section>
+
+    <section class="section" id="surface-map">
+      <h2>Surface Map</h2>
+      <p>{{ surface_map_description }}</p>
+      {{ surface_map_html | safe }}
+    </section>
+
+    <section class="section" id="critical-observations">
+      <h2>Critical Observations</h2>
+      {{ critical_observations_html | safe }}
+    </section>
+
+    <section class="section" id="findings">
+      <h2>Findings</h2>
+      {% for stage, findings in grouped_findings.items() %}
+      <h3>{{ stage }} Findings</h3>
+      {% for finding in findings %}
+      <div class="finding">
+        <h4 id="{{ finding.finding_id }}">{{ finding.title }} ({{ finding.status }})</h4>
+        <p><strong>Observation:</strong> {{ finding.observation }}</p>
+        <p><strong>Affected asset:</strong> {{ finding.affected_asset }}</p>
+        <p><strong>Trust/Security Impact:</strong> {{ finding.trust_or_security_impact }}</p>
+        <p><strong>Commercial Impact:</strong> {{ finding.commercial_impact }}</p>
+        <p><strong>Urgency:</strong> {{ finding.urgency }}</p>
+        <p><strong>Ease of Repair:</strong> {{ finding.ease_of_repair }}</p>
+        <p><strong>Confidence:</strong> {{ finding.confidence }}</p>
+        <p><strong>Interpretation:</strong> {{ finding.interpretation }}</p>
+        <p><strong>Recommendation:</strong> {{ finding.recommendation }}</p>
+        <p><strong>Owner:</strong> {{ finding.owner }} | <strong>Target Date:</strong> {{ finding.target_date }}</p>
+        <p><strong>Retest Method:</strong> {{ finding.retest_method }}</p>
+        <p><strong>Limitation:</strong> {{ finding.limitation }}</p>
+        <p><strong>Evidence Timestamp:</strong> {{ finding.evidence_timestamp }}</p>
+        <p><strong>Evidence:</strong></p>
+        <ul>
+          {% for ev in finding.evidence %}
+          <li>{{ ev }}</li>
+          {% endfor %}
+        </ul>
+        {% if finding.sensitive %}
+        <div class="sensitive"><strong>Sensitive:</strong> {{ finding.disclosure_handling }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    <section class="section" id="priority-matrix">
+      <h2>Priority Matrix</h2>
+      {{ priority_matrix_html | safe }}
+    </section>
+
+    <section class="section" id="actions">
+      <h2>24‑Hour Actions</h2>
+      <ul>
+        {% for action in actions_24h %}
+        <li>{{ action }}</li>
+        {% endfor %}
+      </ul>
+      <h2>30‑Day Roadmap</h2>
+      <ul>
+        {% for action in actions_30d %}
+        <li>{{ action }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="section" id="optional-prototype">
+      <h2>Optional Prototype</h2>
+      <p>{{ prototype_recommendation }}</p>
+    </section>
+
+    <section class="section" id="retest-criteria">
+      <h2>Retest Criteria</h2>
+      <p>{{ retest_criteria }}</p>
+    </section>
+
+    <section class="section" id="limitations">
+      <h2>Limitations</h2>
+      <p>{{ limitations }}</p>
+    </section>
+  </main>
+  <footer>
+    <p>© {{ year }} Jxnesyy Signal Lab – Confidential
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Finding ID,Trust/Security Impact (1-3),Commercial Impact (1-3),Urgency (1-3),Ease of Repair (1-3),Confidence (1-3),Priority Score Formula,Notes
+SG-L-001,3,2,3,1,3,=(B2*2)+(C2*2)+(D2*3)+(4-E2)+(F2),High trust and urgency with moderate commercial impact; low effort to repair.
+SG-G-001,1,3,3,2,2,=(B3*2)+(C3*2)+(D3*3)+(4-E3)+(F3),High commercial and urgency but moderate effort.
+SG-I-001,2,1,2,2,3,=(B4*2)+(C4*2)+(D4*3)+(4-E4)+(F4),Medium trust and low commercial impact.
+SG-N-001,2,2,2,1,3,=(B5*2)+(C5*2)+(D5*3)+(4-E5)+(F5),Medium across the board with easy repair.
+SG-S-001,1,2,2,1,3,=(B6*2)+(C6*2)+(D6*3)+(4-E6)+(F6),Low trust but moderate commercial impact; easy fix.
+SG-A-001,1,3,2,2,1,=(B7*2)+(C7*2)+(D7*3)+(4-E7)+(F7),Competitive advantage opportunity; lower confidence.

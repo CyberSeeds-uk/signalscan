@@ -1,0 +1,9 @@
+{
+  "PREVIEW_FORM_URL": "https://forms.example.com/three-signal-preview",
+  "INTAKE_FORM_URL": "https://forms.example.com/client-intake",
+  "PAYMENT_LINK_URL": "https://pay.example.com/invoice",
+  "CONTACT_EMAIL": "contact@example.com",
+  "PRIVACY_EMAIL": "privacy@example.com",
+  "CLOUDLFARE_ACCOUNT_ID": "<YOUR-CLOUDFLARE-ACCOUNT-ID>",
+  "CLOUDFLARE_PROJECT_NAME": "signalscan"
+}

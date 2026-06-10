@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three‑Signal Preview – {{ client_name }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #ffffff;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0b2429;
+    }
+    .signal {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-left: 4px solid #5a7762;
+      margin-bottom: 1rem;
+    }
+    .trust-gap {
+      border-left-color: #b00;
+      background-color: #ffe6e6;
+    }
+    .journey-obstruction {
+      border-left-color: #e67e22;
+      background-color: #fff3e6;
+    }
+    .missed-opportunity {
+      border-left-color: #2980b9;
+      background-color: #e6f2ff;
+    }
+    .cta {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Three‑Signal Preview</h1>
+  <p>This preview highlights some of the signals we observed on {{ client_name }}’s public digital surface.  It is not a full report but should illustrate the kind of value you can expect from SignalScan.</p>
+  <div class="signal positive-signal">
+    <h2>Positive Observation</h2>
+    <p>{{ positive_observation }}</p>
+  </div>
+  <div class="signal trust-gap">
+    <h2>Verified Trust Gap</h2>
+    <p>{{ trust_gap }}</p>
+  </div>
+  <div class="signal journey-obstruction">
+    <h2>Customer‑Journey Obstruction</h2>
+    <p>{{ journey_obstruction }}</p>
+  </div>
+  <div class="signal missed-opportunity">
+    <h2>Missed Opportunity</h2>
+    <p>{{ missed_opportunity }}</p>
+  </div>
+  <div class="signal">
+    <h2>Ethical Boundary Statement</h2>
+    <p>{{ ethical_statement }}</p>
+  </div>
+  <div class="cta">
+    <p>To explore your full digital surface and receive a prioritised 24‑hour and 30‑day action plan, purchase the full SignalScan.</p>
+    <p><strong>Founding Price:</strong> £295 for the first five qualifying clients.  Standard price is £750.</p>
+    <p><a href="{{ PAYMENT_LINK_URL }}">Proceed to Secure Payment</a> or <a href="{{ CONTACT_EMAIL }}">contact us</a> if you have questions.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "client_name": "Example Garage",
+  "primary_domain": "example.invalid",
+  "engagement_date": "2026-06-09",
+  "executive_summary": "This is a fictional sample report for an example garage in Greater Manchester. It includes representative findings across all SIGNAL stages without exposing real data.",
+  "scope": {
+    "approved_related_domains": [
+      "blog.example.invalid"
+    ],
+    "public_profile_urls": [
+      "https://www.facebook.com/examplegarage",
+      "https://www.instagram.com/examplegarage"
+    ],
+    "competitor_urls": [
+      "https://competitor1.invalid",
+      "https://competitor2.invalid",
+      "https://competitor3.invalid"
+    ]
+  },
+  "method": "SIGNAL",
+  "findings": [
+    {
+      "finding_id": "SG-S-001",
+      "title": "Public domain resolves correctly",
+      "signal_stage": "Surface",
+      "status": "positive",
+      "observation": "The primary domain resolves to a single IP address with a valid A record.",
+      "source": "DNS A record",
+      "evidence": "example.invalid -> 203.0.113.1",
+      "evidence_timestamp": "2026-06-09T09:00:00Z",
+      "affected_asset": "example.invalid",
+      "trust_or_security_impact": 2,
+      "commercial_impact": 1,
+      "urgency": 1,
+      "ease_of_repair": 3,
+      "confidence": 3,
+      "interpretation": "Correct DNS configuration contributes to service availability.",
+      "recommendation": "No action required.",
+      "owner": "Client",
+      "target_date": null,
+      "retest_method": "Requery DNS records after any configuration changes.",
+      "limitation": "Relies on public DNS records.",
+      "sensitive": false,
+      "disclosure_handling": "public"
+    },
+    {
+      "finding_id": "SG-I-002",
+      "title": "Missing privacy notice",
+      "signal_stage": "Integrity",
+      "status": "requires attention",
+      "observation": "The website lacks a visible privacy notice or cookie policy on the homepage. A request to /privacy returns a 404 error.",
+      "source": "Homepage inspection and privacy-notice request",
+      "evidence": "No link labelled 'privacy' or 'cookie' found in the footer or header; accessing https://example.invalid/privacy returns 404 (Privacy notice 404).",
+      "evidence_timestamp": "2026-06-09T09:05:00Z",
+      "affected_asset": "https://example.invalid",
+      "trust_or_security_impact": 3,
+      "commercial_impact": 2,
+      "urgency": 3,
+      "ease_of_repair": 2,
+      "confidence": 3,
+      "interpretation": "Customers may hesitate to submit enquiries when privacy commitments are unclear.",
+      "recommendation": "Publish a clear privacy notice and link it prominently in the footer.",
+      "owner": "Client",
+      "target_date": "2026-06-16",
+      "retest_method": "Verify presence and accessibility of privacy notice.",
+      "limitation": "Observation limited to homepage without navigating deeper due to passive collection rules.",
+      "sensitive": false,
+      "disclosure_handling": "public"
+    }
+  ],
+  "priority_matrix": [
+    {
+      "finding_id": "SG-I-002",
+      "priority_score": 19
+    },
+    {
+      "finding_id": "SG-S-001",
+      "priority_score": 10
+    }
+  ],
+  "summary_actions": {
+    "24_hour": [
+      "Draft and publish a privacy notice with clear data-handling commitments."
+    ],
+    "30_day": [
+      "Develop a plan to improve mobile response times and update visual content."
+    ],
+    "prototype": "Consider creating a simple booking form to streamline customer enquiries."
+  }
+}

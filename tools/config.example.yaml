@@ -1,0 +1,30 @@
+# Example configuration for the signalscan_collect tool
+# Rename this file and fill in the values before running the collector.
+
+client_name: "Example Garage"
+primary_domain: "example.invalid"
+approved_related_domains:
+  - "booking.example.invalid"
+public_profile_urls:
+  - "https://g.page/examplegarage"
+  - "https://www.facebook.com/examplegarage"
+competitor_urls:
+  - "https://garageco.invalid"
+  - "https://motcentre.invalid"
+  - "https://autoshop.invalid"
+output_directory: "./output"
+respectful_delay: 1.0  # seconds between requests
+user_agent: "SignalScanBot/1.0 (+https://signalscan.example.com)"
+enabled_passive_checks:
+  - dns_records
+  - tls_certificate
+  - http_headers
+  - robots
+  - sitemap
+  - homepage_metadata
+  - contact_links
+  - form_count
+  - third_party_scripts
+  - privacy_and_cookie_pages
+  - mixed_content
+  - response_time

@@ -1,0 +1,34 @@
+{
+  "core_product": {
+    "name": "SignalScan",
+    "description": "A comprehensive external digital trust intelligence assessment for founder‑led automotive service businesses. Delivered within 48 hours with actionable recommendations and a clear priority matrix.",
+    "deliverables": [
+      "Executive judgement",
+      "External digital surface map",
+      "Integrity and privacy observations",
+      "Mobile customer‑journey findings",
+      "Narrative and reputation analysis",
+      "Competitor comparison",
+      "Missed‑opportunity indicators",
+      "Prioritised action plan",
+      "24‑hour and 30‑day roadmaps",
+      "Optional prototype recommendation",
+      "Retest criteria",
+      "Evidence appendix"
+    ]
+  },
+  "entry_product": {
+    "name": "Three‑Signal Preview",
+    "description": "A one‑page glimpse into the client's digital surface containing a positive observation, a verified trust gap, a customer‑journey obstruction, a missed opportunity and an ethical boundary reminder.",
+    "purpose": "Demonstrate immediate value and invite the client to purchase the full SignalScan."
+  },
+  "recurring_product": {
+    "name": "SignalWatch",
+    "description": "Ongoing monitoring and quarterly reassessment of the client's digital surface to detect regressions, new trust gaps and emerging opportunities.",
+    "frequency": "Quarterly"
+  },
+  "implementation_product": {
+    "name": "SignalRepair",
+    "description": "Hands‑on support to implement the recommendations identified in SignalScan.  May include design tweaks, copywriting, basic technical fixes or referrals to specialist partners.  Offered only to clients who have completed a SignalScan."
+  }
+}
